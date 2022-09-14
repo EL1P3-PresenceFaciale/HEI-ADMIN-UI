@@ -1,38 +1,152 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./components/fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth\,wght.ttf');
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul{
+  list-style-type: none ;
+  display: flex;
+  flex-direction: row;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+li{
+  flex-basis: 100%;
+  align-items: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  transition: background-color 0.3s ease;
+  margin-left: 2%;
+  font-weight: 500;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.present,.event, .eventp , .places, li:hover {
+  background-color: rgb(255, 207, 102);
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+#logohei{
+  width: 3.5vw;
+  height: 5vh;
+  padding-top: 0.6vh;
+  margin-right: 1%;
+}
+
+.nav{
+  display: flex ;
+  flex-direction: row;
+  width: 100%;
+  padding-top: 1.7vh;
+  padding-bottom: 1.7vh;
+  background-color: whitesmoke;
+}
+
+.navLogo{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 2;
+  margin-left: 5%;
+}
+
+.navLinks {
+  flex-grow: 1;
+  margin-right: 10vw;  
+}
+
+
+.modal_{
+  display: none;
+}
+ .overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+.overlay{
+  background-color: gray;
+  opacity: 0.5;
+}
+.modal-content{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 40%;
+  position: absolute;
+  z-index: 100;
+  top: 10%;
+  left: 25%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 7vh 10vh;
 }
 
-.App-link {
-  color: #61dafb;
+.pictures{
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  margin: 5vh auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+video{
+  padding: 0 auto;
+  margin-right: 5vw ;
+  border-radius: 10px;
+  width: 100%;
+}
+
+#pic{
+  width: 35vw;
+  height: 51.7vh;
+  border-radius: 10px;
+}
+
+.video{
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+#take{
+  width: 60px;
+  height: 60px;
+  font-size: 10px;
+  background-color: rgb(240, 240, 240);
+  border-radius: 50%;
+  margin: 5vh auto;
+  padding: 10vh auto;
+  border: none;
+  cursor: pointer;
+}
+#take:hover{
+  background-color: rgb(182, 182, 182);
+  transition: background-color 0.4s ease;
+}
+
+@media screen and (max-width: 1000px ) {
+  .nav img{
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+  .navLinks{
+    margin-right: 20px;
+  }
+  .nav h3{
+    padding-top: 10px;
+  }
+  .pictures{
+    flex-direction: column;
+  }
+  .pic{
+    width: 250px;
+    height: 50px;
   }
 }
