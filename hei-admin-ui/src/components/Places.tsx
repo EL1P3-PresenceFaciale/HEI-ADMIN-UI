@@ -17,7 +17,6 @@ export default function Places(){
             onChange={(e: React.FormEvent<HTMLInputElement>) => {
                 setSearchTerm(e.currentTarget.value)
                 console.log(searchTerm);
-                
             }}
             />
              

@@ -94,6 +94,21 @@ li{
   padding: 7vh 10vh;
 }
 
+#closeIcon{
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: -60px;
+  left: 630px;
+}
+
+#closeIcon :hover{
+  cursor: pointer;
+  border-radius: 20px;
+ 
+  background-color: gainsboro;
+  transition: all 0.3s ease;
+}
 .pictures{
   display: flex;
   flex-direction: row;
