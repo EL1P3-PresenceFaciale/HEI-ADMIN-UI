@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect,  FormEvent } from 'react';
-import CameraAltIcon from '@mui/icons-material/CameraAlt';
 
 const Face: React.FC = () => {
 
-    const [photo, setPhoto] = useState<string>("")
+    const [photos, setPhoto] = useState<string>("")
+    const [ photoByte , setPhotoByte ] = useState<ArrayBufferLike>()
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const photoRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -23,6 +23,16 @@ const getVideo = () => {
         })
 }
 
+function _base64ToArrayBuffer(base64: string) {
+    var binary_string = window.atob(base64);
+    var len = binary_string.length;
+    var bytes = new Uint8Array(len);
+    for (var i = 0; i < len; i++) {
+        bytes[i] = binary_string.charCodeAt(i);
+    }
+    return bytes.buffer;
+}
+
 const takePhoto = () =>{
     const width = 414;
     const height = width / (16/9);
@@ -37,6 +47,13 @@ const takePhoto = () =>{
     ctx!.drawImage(video, 0, 0, width, height)
     console.log(photo.toDataURL())
     setPhoto(photo.toDataURL())
+    console.log("ito ny photos  "+ photo.toDataURL());
+    
+    setPhotoByte(_base64ToArrayBuffer(photos))
+    console.log(_base64ToArrayBuffer(photos));
+    
+    //console.log("ARRAYBFFER  +"+ photoByte);
+    
 }
 
 
@@ -51,10 +68,10 @@ const log = (e: FormEvent<HTMLCanvasElement>) => {
            <div className='pictures'>
                <div className='video'>
                     <video ref={videoRef}></video>
-                    <button onClick={takePhoto} id="take"> <CameraAltIcon/> </button>
+                    <button onClick={takePhoto} id="take"> Take picture </button>
                 </div> 
                 <canvas ref={photoRef}  onChange={(e)=>log(e)} style={{display: 'none'}}></canvas>
-                { photo && <img src={photo} id="pic" alt="Your pic"/>}
+                { photos && <img src={photos} id="pic" alt="Your pic"/>}
            </div> 
         </>
     )

@@ -3,9 +3,7 @@
   src: url('./components/fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth\,wght.ttf');
 }
 
-.App {
-  text-align: center;
-}
+
 
 ul{
   list-style-type: none ;
@@ -14,10 +12,12 @@ ul{
 }
 
 li{
+  text-align: center;
   flex-basis: 100%;
   align-items: center;
   text-decoration: none;
   text-transform: uppercase;
+  padding: auto;
   padding-top: 1%;
   padding-bottom: 1%;
   transition: background-color 0.3s ease;
@@ -25,16 +25,18 @@ li{
   font-weight: 500;
 }
 
-.present,.event, .eventp , .places, li:hover {
+
+.present,.event, .eventp ,.login, .places, li:hover {
+  position: relative;
   background-color: rgb(255, 207, 102);
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
 #logohei{
-  width: 3.5vw;
-  height: 5vh;
+  width: 4.2vw;
+  height: 6vh;
   padding-top: 0.6vh;
   margin-right: 1%;
 }
@@ -53,6 +55,7 @@ li{
   flex-direction: row;
   flex-grow: 2;
   margin-left: 5%;
+  margin-top: -1vh;
 }
 
 .navLinks {
@@ -74,7 +77,8 @@ li{
   position: fixed;
 }
 .overlay{
-  background-color: gray;
+  background-color: rgb(199, 199, 199);
+  filter: blur(40px);
   opacity: 0.5;
 }
 .modal-content{
@@ -117,20 +121,83 @@ video{
 }
 
 #take{
-  width: 60px;
-  height: 60px;
-  font-size: 10px;
-  background-color: rgb(240, 240, 240);
-  border-radius: 50%;
+  font-size: 20px;
+  color: red;
+  border-radius: 10%;
+  border: solid 2px red;
   margin: 5vh auto;
-  padding: 10vh auto;
+  padding: 2vh;
   border: none;
   cursor: pointer;
 }
 #take:hover{
-  background-color: rgb(182, 182, 182);
+  background-color: rgb(255, 160, 160);
   transition: background-color 0.4s ease;
 }
+
+.login{
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  width: 40%;
+  height: 50vh;
+  margin: auto;
+  margin-top: 5%;
+ }
+
+.mb-3{
+  width: 63%;
+  height: 5vh;
+  margin: auto;
+  margin-top: 5vh;
+}
+
+.contain{
+  border-radius: 1vh;
+  margin: 12vh auto;
+  width: 90vw;
+}
+
+.event_contain{
+  border-radius: 10px;
+  width: 100%;
+  padding: 5vh 4vh;
+  font-size: 1vw;
+  box-shadow: 9px 10px 50px 5px rgb(233, 233, 233);
+}
+
+thead{
+  margin-top: 5vh;
+  font-size: 1.3vw;
+  height: 10vh;;
+  padding-bottom: 20vh;
+}
+th{
+  flex-basis: 100%;
+  text-align: center;
+}
+
+td{
+  flex-direction: column;
+  text-align: center;
+  height: 10vh;
+  flex-wrap: wrap;
+  width: 10vw;
+}
+tr:hover{
+  background-color: rgb(235, 232, 232);
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.event_table{
+  margin: auto;
+  width: 100%;
+}
+
+
+
 
 @media screen and (max-width: 1000px ) {
   .nav img{

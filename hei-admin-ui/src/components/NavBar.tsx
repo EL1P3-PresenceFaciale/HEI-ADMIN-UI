@@ -11,7 +11,7 @@ export default function NavBar(){
         <div className="nav">
             <div className="navLogo" >
                 <img src={hei} alt="hei"  id="logohei" /> 
-                <h3>ADMIN</h3>
+                <h3 style={{ fontWeight: '500' , paddingTop : '1.5vh' }}>Admin</h3>
             </div>
             <div className="navLinks">
                 <ul>
@@ -19,17 +19,17 @@ export default function NavBar(){
                     isActive("present");
                     navigate("/")} 
                    }
-                    >Présence Faciale</li>
-                   <li className={`${active === 'event' && 'event'}`} onClick={()=> {
+                    >Facial</li>
+                   <li className={` ${active === 'event' && 'event'}`} onClick={()=> {
                     isActive("event")
                     navigate("/events")
                     }} >Events</li> 
-                   <li className={`${active === 'places' && 'places'}`} onClick={()=> {
+                   <li className={` ${active === 'places' && 'places'}`} onClick={()=> {
                     isActive("places")
                     navigate("/places")
                     }} 
                     >Places</li> 
-                    <li className={`${active === 'login' && 'login'}`} onClick={()=> {
+                    <li className={` ${active === 'login' && 'login'}`} onClick={()=> {
                     isActive("/login")
                     navigate("/login")
                     }}>
