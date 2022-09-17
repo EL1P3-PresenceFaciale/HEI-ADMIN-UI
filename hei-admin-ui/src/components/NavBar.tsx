@@ -15,12 +15,7 @@ export default function NavBar(){
             </div>
             <div className="navLinks">
                 <ul>
-                   <li  className={`${active === 'present' && 'present'}`}  onClick={()=> {
-                    isActive("present");
-                    navigate("/")} 
-                   }
-                    >Facial</li>
-                   <li className={` ${active === 'event' && 'event'}`} onClick={()=> {
+                    <li className={` ${active === 'event' && 'event'}`} onClick={()=> {
                     isActive("event")
                     navigate("/events")
                     }} >Events</li> 

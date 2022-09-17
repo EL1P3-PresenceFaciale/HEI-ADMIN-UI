@@ -7,6 +7,7 @@ import Event from './components/Event';
 import Places from './components/Places';
 import Login from './components/Login';
 import EventParticipant from './components/EventParticipant';
+import Loading from './components/Loading';
 
 function App() {
   return (
@@ -14,11 +15,12 @@ function App() {
     <div className="App">
       <NavBar/> 
       <Routes>
-          <Route path='/' element={<FacialPresence/>}  />
+          <Route path='/' element={<Loading/>}  />
           <Route path='/events' element={<Event/>}  />
-          <Route path='/event/eventParticipant' element={ <EventParticipant/> }/>
+          <Route path='/event/:/idEvent/eventParticipant' element={ <EventParticipant/> }/>
           <Route path='/places' element={<Places/>}  />
           <Route path='/login' element={<Login/>}  />
+          <Route path='/attend' element={ <FacialPresence/> } />
       </Routes>  
     </div>
     

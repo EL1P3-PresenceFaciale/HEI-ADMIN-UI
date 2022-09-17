@@ -1,9 +1,10 @@
+import { TextField } from '@mui/material';
 import React, { useState, useRef, useEffect,  FormEvent } from 'react';
 
 const Face: React.FC = () => {
 
     const [photos, setPhoto] = useState<string>("")
-    const [ photoByte , setPhotoByte ] = useState<ArrayBufferLike>()
+    const [ photoByte , setPhotoByte ] = useState<ArrayBufferLike | undefined >()
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const photoRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -23,15 +24,8 @@ const getVideo = () => {
         })
 }
 
-function _base64ToArrayBuffer(base64: string) {
-    var binary_string = window.atob(base64);
-    var len = binary_string.length;
-    var bytes = new Uint8Array(len);
-    for (var i = 0; i < len; i++) {
-        bytes[i] = binary_string.charCodeAt(i);
-    }
-    return bytes.buffer;
-}
+
+
 
 const takePhoto = () =>{
     const width = 414;
@@ -49,11 +43,6 @@ const takePhoto = () =>{
     setPhoto(photo.toDataURL())
     console.log("ito ny photos  "+ photo.toDataURL());
     
-    setPhotoByte(_base64ToArrayBuffer(photos))
-    console.log(_base64ToArrayBuffer(photos));
-    
-    //console.log("ARRAYBFFER  +"+ photoByte);
-    
 }
 
 
@@ -68,6 +57,7 @@ const log = (e: FormEvent<HTMLCanvasElement>) => {
            <div className='pictures'>
                <div className='video'>
                     <video ref={videoRef}></video>
+                    <TextField id="outlined-basic" label="Event ID" variant="outlined" sx={{ mb : 4 }}/>
                     <button onClick={takePhoto} id="take"> Take picture </button>
                 </div> 
                 <canvas ref={photoRef}  onChange={(e)=>log(e)} style={{display: 'none'}}></canvas>

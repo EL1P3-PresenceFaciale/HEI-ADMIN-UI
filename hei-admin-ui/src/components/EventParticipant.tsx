@@ -5,11 +5,13 @@ import axios, { AxiosResponse } from 'axios'
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { EventPartList } from './Types'
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 
 
 export default function EventParticipant(){
     
-    /*
     const [ result , setResult ] = useState<EventPartList>([])
 
     const { idEvent } = useParams();
@@ -20,81 +22,36 @@ export default function EventParticipant(){
             setResult(response.data)
         })
     }) 
-    */
 
     const navigate = useNavigate()
 
     return (
         <div className="contain">
+            <h2  style={{ position: 'absolute' , top: '12%' , left: '30%' }}>Event's participants</h2>
             <Button variant='contained' sx={{ position: 'absolute' , top: '12%' , left: '10%', fontSize: '20px'}} onClick={()=> navigate("/events")} > <ArrowBackIcon/> All Events </Button>
         <div className="event_contain">
             <table className="event_table">
                 <thead>
                     <th>Participant (ref) </th>
-                    <th>Event</th>
-                    <th>Responsible (ref)</th>
-                    <th>Place</th>
+                    <th>Event ID</th>
                     <th>Status</th>
                 </thead>
                 <tbody>
+                    {result.map((item) => 
                     <tr>
-                        <td>qqsdfgh</td>
-                        <td>qqsdfgh</td>
-                        <td>qqsdfgh</td>
-                        <td>qqsdfgh</td>
-                        <td>qqsdfgh</td>
+                        <td>{item.ref}</td>
+                        <td>{item.event_id}</td>
+                        <td>{item.status}</td>
                     </tr>
-                    <tr>
-                        <td>iuyt</td>
-                        <td>iuyt</td>
-                        <td>iuyt</td>
-                        <td>iuyt</td>
-                        <td>iuyt</td>
-                    </tr>
-                    <tr>
-                        <td>ij, fghfhsfgh</td>
-                        <td>ij, fghfhsfgh</td>
-                        <td>ij, fghfhsfgh</td>
-                        <td>ij, fghfhsfgh</td>
-                        <td>ij, fghfhsfgh</td>
-                    </tr>
-                    <tr>
-                        <td>'rtgh</td>
-                        <td>'rtgh</td>
-                        <td>'rtgh</td>
-                        <td>'rtgh</td>
-                        <td>'rtgh</td>
-                    </tr>
-                    <tr>
-                        <td>aqwzsxdc </td>
-                        <td>aqwzsxdc </td>
-                        <td>aqwzsxdc </td>
-                        <td>aqwzsxdc </td>
-                        <td>aqwzsxdc </td>
-                    </tr>
-                    <tr>
-                        <td>oiuytr</td>
-                        <td>oiuytr</td>
-                        <td>oiuytr</td>
-                        <td>oiuytr</td>
-                        <td>oiuytr</td>
-                    </tr>
-                    <tr>
-                        <td>ik,yhb </td>
-                        <td>fvfv </td>
-                        <td>hnyhb</td>
-                        <td>sdfgsdfg</td>
-                        <td>sdfgsdf</td>
-                    </tr>
-                    <tr>
-                        <td>tgty6552</td>
-                        <td>tgty6552</td>
-                        <td>tgty6552</td>
-                        <td>tgty6552</td>
-                        <td>tgty6552</td>
-                    </tr>
+                    )}
                 </tbody>
             </table>
+        </div>
+        <Button variant="contained"  onClick={()=> navigate("/attend")}  sx={{ position : 'fixed' , bottom: '5%' , right: '5%' , fontSize: '15px',  width: '10vw' , height: '6vh'}}>Who's there ?</Button> 
+        <div className='pagination'>
+            <span style={{ cursor: 'pointer' }} > <KeyboardArrowLeft sx={{ fontSize: '50px' }} /> </span>
+            <span style={{ borderRadius : '10px' , background: 'none'}} > Id page </span> 
+            <span style={{ cursor: 'pointer' }} > <KeyboardArrowRightIcon sx={{ fontSize: '50px' }} /> </span>
         </div>
     </div>
     )

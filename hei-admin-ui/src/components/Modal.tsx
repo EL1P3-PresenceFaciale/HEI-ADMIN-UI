@@ -11,7 +11,7 @@ export function Modal(props: ModalTypes) {
     const { children , open , setOpen } = props;
 
   return (
-    <div className={`modal_${open ? "open" : ""}`}>
+    <div className={`modal_${open ? "open" : ""}`} > 
         <div className="overlay" onClick={()=> setOpen(false)} ></div>
         
         <div className='modal-content'>
